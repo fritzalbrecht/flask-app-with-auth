@@ -5,6 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+  release:
+  types:
+    - created
+  tags:
+    - 'terraform-*'
 
 jobs:
   terraform-deploy:
@@ -54,4 +59,4 @@ jobs:
           TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           TF_VAR_acm_cert_arn: ${{ secrets.ACM_CERT_ARN }}
           TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        if: github.event_name == 'release' && startsWith(github.event.release.tag_name, 'terraform-')
+        if: github.event_name == 'release'
