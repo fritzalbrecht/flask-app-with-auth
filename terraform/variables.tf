@@ -93,6 +93,7 @@ variable "service_name" {
 variable "ecs_image_url" {
   description = "The desired ECR image URL."
   type        = string
+  default = "144131464452.dkr.ecr.us-east-1.amazonaws.com/flask-docker-demo-app:latest"
 }
 
 # This variable defines the name for the DynamoDB table used by the container app.
