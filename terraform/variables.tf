@@ -95,9 +95,3 @@ variable "ecs_image_url" {
   type        = string
   default = "144131464452.dkr.ecr.us-east-1.amazonaws.com/flask-docker-demo-app:latest"
 }
-
-# This variable defines the name for the DynamoDB table used by the container app.
-variable "acm_certificate_arn" {
-  description = "The ARN of the ACM certificate for *.fritzalbrecht.com"
-  type        = string
-}
