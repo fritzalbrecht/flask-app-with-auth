@@ -1,0 +1,29 @@
+{
+    "strict": true,
+    "debug": true,
+    "sp": {
+      "entityId": "https://flaskapp.fritzalbrecht.com/saml/metadata",
+      "assertionConsumerService": {
+        "url": "https://flaskapp.fritzalbrecht.com/saml/acs",
+        "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+      },
+      "singleLogoutService": {
+        "url": "https://flaskapp.fritzalbrecht.com/saml/sls",
+        "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      },
+      "x509cert": "MIIDdDCCAlygAwIBAgIGAY4o+0EDMA0GCSqGSIb3DQEBCwUAMHsxFDASBgNVBAoTC0dvb2dsZSBJbmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZHb29nbGUxGDAWBgNVBAsTD0dvb2dsZSBGb3IgV29yazELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwHhcNMjQwMzEwMTUyODU3WhcNMjkwMzA5MTUyODU3WjB7MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEPMA0GA1UEAxMGR29vZ2xlMRgwFgYDVQQLEw9Hb29nbGUgRm9yIFdvcmsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApFY7mzs9aOw/HptLnslDXaSjn/yTEj/8CoWjrFqvQ4ljpmETURK146eooFpVIXOVnAxki8AOMaW8g4NI5bVlc6qUgkp3OfrEZZINSl/yeMwfiPiR52Ykg678gYF0jHWMu8124q5EfFwI798JeI2pUG/LN0gc+t+HyxuUpnzhZGMPjVeOQh5gtsaTwL1FCFShwZmvE9i5Z4O5eFWXjpS551r8dM2P6zgC7rzzs6yJYGCwp4IItrRWj36IacTUBsH+i3Nn0M+CGeaFZwV9oHR6CxJUnP7fZCCc6Rdk0xOhXccVRpoOsEufRpmCuef6EBajZA4g0Z7dNtCTG1ZKwYIEKQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAS/Webon1/Oh3ol+/T8Zm7PaAOsX50xhG3lvTJoy5/YRTqJv4oF8SzCyDbN6IY5TgiD9gRwIgkA0nUk68ILkTtbiQR/+ds+dcKaTh/Y7eJrBKx0wihBT3b6098S0EJCGYcbj2frdF8/2lGZmwWanJRAmQ4mdEgWPw9xV57RJ1otjeFyjwZSoYu/I3begM9S+MVvcAglA6FeCUiNJvbxMy14c8j4l1De7zNw+09yPwg7JpJCOLvC02oOE+lplRZIcJLXL++LGcmE88Ltsq5SSCci2qQYinuqxTGqZ9D+3/SN+LGJEZFkUdSdvoK6Q5xtn+kqxKQsk+jfmcmDBLlwAZz",
+      "privateKey": ""
+    },
+    "idp": {
+      "entityId": "https://accounts.google.com/o/saml2?idpid=C01g6u2w7",
+      "singleSignOnService": {
+        "url": "https://accounts.google.com/o/saml2/idp?idpid=C01g6u2w7",
+        "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      },
+      "singleLogoutService": {
+        "url": "",
+        "binding": ""
+      },
+      "x509cert": "MIIDdDCCAlygAwIBAgIGAY4o+0EDMA0GCSqGSIb3DQEBCwUAMHsxFDASBgNVBAoTC0dvb2dsZSBJbmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZHb29nbGUxGDAWBgNVBAsTD0dvb2dsZSBGb3IgV29yazELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwHhcNMjQwMzEwMTUyODU3WhcNMjkwMzA5MTUyODU3WjB7MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEPMA0GA1UEAxMGR29vZ2xlMRgwFgYDVQQLEw9Hb29nbGUgRm9yIFdvcmsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApFY7mzs9aOw/HptLnslDXaSjn/yTEj/8CoWjrFqvQ4ljpmETURK146eooFpVIXOVnAxki8AOMaW8g4NI5bVlc6qUgkp3OfrEZZINSl/yeMwfiPiR52Ykg678gYF0jHWMu8124q5EfFwI798JeI2pUG/LN0gc+t+HyxuUpnzhZGMPjVeOQh5gtsaTwL1FCFShwZmvE9i5Z4O5eFWXjpS551r8dM2P6zgC7rzzs6yJYGCwp4IItrRWj36IacTUBsH+i3Nn0M+CGeaFZwV9oHR6CxJUnP7fZCCc6Rdk0xOhXccVRpoOsEufRpmCuef6EBajZA4g0Z7dNtCTG1ZKwYIEKQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAS/Webon1/Oh3ol+/T8Zm7PaAOsX50xhG3lvTJoy5/YRTqJv4oF8SzCyDbN6IY5TgiD9gRwIgkA0nUk68ILkTtbiQR/+ds+dcKaTh/Y7eJrBKx0wihBT3b6098S0EJCGYcbj2frdF8/2lGZmwWanJRAmQ4mdEgWPw9xV57RJ1otjeFyjwZSoYu/I3begM9S+MVvcAglA6FeCUiNJvbxMy14c8j4l1De7zNw+09yPwg7JpJCOLvC02oOE+lplRZIcJLXL++LGcmE88Ltsq5SSCci2qQYinuqxTGqZ9D+3/SN+LGJEZFkUdSdvoK6Q5xtn+kqxKQsk+jfmcmDBLlwAZz" 
+    }
+  }

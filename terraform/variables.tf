@@ -97,8 +97,7 @@ variable "ecs_image_url" {
 }
 
 # This variable defines the name for the DynamoDB table used by the container app.
-variable "dynamodb_table_name" {
-  description = "The desired DynamoDB table name."
+variable "acm_certificate_arn" {
+  description = "The ARN of the ACM certificate for *.fritzalbrecht.com"
   type        = string
-  default     = "musicTable"
 }

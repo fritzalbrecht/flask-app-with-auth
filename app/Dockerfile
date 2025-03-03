@@ -1,12 +1,21 @@
-FROM python:3.12-slim as builder
-COPY . /src
-RUN pip install --user fastapi uvicorn boto3 flask
+FROM python:3.9-slim
 
-FROM python:3.12-slim as app
-COPY --from=builder /root/.local /root/.local
-COPY --from=builder /src .
+WORKDIR /app
 
-ENV PATH=/root/.local:$PATH
+COPY requirements.txt .
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+COPY . .
+
+RUN addgroup --system app && adduser --system --ingroup app app \
+    && chown -R app:app /app
+
+USER app
+
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=production
+
 EXPOSE 5000
 
-CMD ["python3", "app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
