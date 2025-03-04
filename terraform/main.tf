@@ -1,3 +1,15 @@
+resource "aws_s3_bucket" "cloud_resume_website_bucket" {
+  bucket = "flask-app-statefile-bucket"
+}
+
+terraform {
+  backend "s3" {
+    bucket = "flask-app-statefile-bucket"
+    region = "us-east-1"
+    key    = "terraform.tfstate"
+  }
+}
+
 ## IAM Policies and Roles ##
 locals {
   account_id = "${data.aws_caller_identity.current.account_id}"
