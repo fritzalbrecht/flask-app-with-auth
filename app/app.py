@@ -1,10 +1,13 @@
 from flask import Flask, request, redirect, render_template, make_response, session
 from onelogin.saml2.auth import OneLogin_Saml2_Auth
+from werkzeug.middleware.proxy_fix import ProxyFix
 import json
 import os
 
+
 app = Flask(__name__)
-app.secret_key = "12345678901"  # Replace with your secret key or use os.urandom(24)
+app.secret_key = "12345678901"
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 def init_saml_auth(req):
     # Load SAML settings from file
@@ -103,4 +106,4 @@ def logout():
     """
 
 if __name__ == "__main__":
-    app.run(debug=True, ssl_context='adhoc')
+    app.run(debug=True)
