@@ -1,7 +1,3 @@
-resource "aws_s3_bucket" "cloud_resume_website_bucket" {
-  bucket = "flask-app-statefile-bucket"
-}
-
 terraform {
   backend "s3" {
     bucket = "flask-app-statefile-bucket"
