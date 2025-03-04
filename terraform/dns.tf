@@ -7,6 +7,10 @@ terraform {
   }
 }
 
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
+}
+
 resource "cloudflare_record" "flaskapp_dns_record" {
   zone_id = var.cloudflare_zone_id
   name    = "flaskapp"
