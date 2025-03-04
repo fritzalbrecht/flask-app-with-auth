@@ -443,7 +443,7 @@ resource "aws_ecs_service" "service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.app_tg.arn
-    container_name   = "flask-app"
+    container_name   = "demo-app"
     container_port   = 5000
   }
 
