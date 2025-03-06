@@ -1,7 +1,9 @@
 # Deploy Python Flask App with SAML Authenticatoin
 ---
 
-This repo features a very simple Flask app that demonstrates a successful usage of SAML authentication using a Google Workspace app for SAML authentication.
+This repo features a very simple Flask app that demonstrates a successful usage of SAML authentication using a Google Workspace app for SAML authentication. The webapp is hosted at:
+
+https://flaskapp.fritzalbrecht.com
 
 Google Workspace was chosen because it features an enterprise grade SAML solution and offers a wide variety of tools and features.
 
