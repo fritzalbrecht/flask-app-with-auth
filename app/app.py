@@ -7,15 +7,13 @@ import os
 
 app = Flask(__name__)
 app.secret_key = "12345678901"
-app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1, x_port=1)
 
 def init_saml_auth(req):
-    # Load SAML settings from file
     saml_settings = json.load(open(os.path.join(os.path.dirname(__file__), 'saml', 'settings.json')))
     return OneLogin_Saml2_Auth(req, old_settings=saml_settings)
 
 def prepare_flask_request():
-    # Helper to construct the request for python-saml
     url_data = request.form if request.method == 'POST' else request.args
     return {
         'https': 'on' if request.scheme == 'https' else 'off',
@@ -69,10 +67,8 @@ def saml_acs():
     auth.process_response()
     errors = auth.get_errors()
     if len(errors) == 0:
-        # SAML authentication successful. Retrieve attributes as needed.
         session_index = auth.get_session_index()
         user_data = auth.get_attributes()
-        # Store authentication flag and user attributes in session
         session['authenticated'] = True
         session['user_data'] = user_data
         return redirect('/')
@@ -83,7 +79,6 @@ def saml_acs():
 def authenticated():
     if not session.get('authenticated'):
         return redirect('/')
-    # Sample content for authenticated users with a logout button
     return """
         <h1>Authenticated Page</h1>
         <p>Welcome, you have successfully authenticated via SAML.</p>
@@ -95,9 +90,7 @@ def authenticated():
 
 @app.route('/logout')
 def logout():
-    # Clear the user session
     session.clear()
-    # Return a logout page with a SAML login button
     return """
         <h1>You have been logged out.</h1>
         <form action="/saml/login" method="get">
