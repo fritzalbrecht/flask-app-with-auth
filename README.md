@@ -19,5 +19,5 @@ Examples of how to use the scripts are below:
 
 python3 onboard.py --first <first_name> --last <last_name>
 
-python3 onboard.py --email <email_address>
+python3 offboard.py --email <email_address>
 
