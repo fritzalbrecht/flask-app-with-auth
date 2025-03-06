@@ -1,15 +1,13 @@
 # Deploy Python Flask App with SAML Authenticatoin
 ---
 
-
-# Services Used
----
-
 This repo features a very simple Flask app that demonstrates a successful usage of SAML authentication using a Google Workspace app for SAML authentication.
 
 Google Workspace was chosen because it features an enterprise grade SAML solution and offers a wide variety of tools and features.
 
-The Flask app is configured to be run on ECS Fargate to minimize infrastructure overhead. To run the app a Dockerfile needs to be built using the app.py code in the /app directory.
+The Flask app is configured to be run on ECS Fargate to minimize infrastructure overhead. To deploy the infrastructure you simply need to apply the terraform config. 
+
+To run the app a Dockerfile needs to be built using the app.py code in the /app directory.
 
 The ECS configuration is configured in terraform and can be found in the /terraform directory. This also features the usage of Cloudflare DNS to allow the Flask app to be accessed over HTTPS.
 
