@@ -5,7 +5,7 @@ This repo features a very simple Flask app that demonstrates a successful usage 
 
 Google Workspace was chosen because it features an enterprise grade SAML solution and offers a wide variety of tools and features.
 
-The Flask app is configured to be run on ECS Fargate to minimize infrastructure overhead. To deploy the infrastructure you simply need to apply the terraform config. 
+The Flask app is configured to be run on ECS Fargate to minimize infrastructure overhead. To deploy the infrastructure you simply need to apply the terraform config. Note; the terraform config is based off the config found in this repo https://github.com/aws-samples/deploy-python-flask-microservices-to-aws-using-open-source-tools except it has been updated to use ECS Fargate instead of EC2 on ECS using auto scaling groups.
 
 To run the app a Dockerfile needs to be built using the app.py code in the /app directory.
 
