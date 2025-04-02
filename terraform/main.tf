@@ -274,7 +274,7 @@ resource "aws_ecs_service" "service" {
   task_definition = aws_ecs_task_definition.ecs_task_definition.arn
   launch_type     = "FARGATE"
   network_configuration {
-    subnets          = [aws_subnet.private_1.id, aws_subnet.private_2.id]
+    subnets          = aws_subnet.main.id
     assign_public_ip = false
     security_groups  = [aws_security_group.ecs_service_sg.id]
   }
