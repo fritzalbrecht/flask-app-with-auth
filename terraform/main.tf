@@ -172,7 +172,7 @@ resource "aws_lb" "app_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb_sg.id]
-  subnets            = aws_subnet.main.id
+  subnets            = [aws_subnet.main.id]
 }
 
 resource "aws_lb_target_group" "app_tg" {
@@ -274,7 +274,7 @@ resource "aws_ecs_service" "service" {
   task_definition = aws_ecs_task_definition.ecs_task_definition.arn
   launch_type     = "FARGATE"
   network_configuration {
-    subnets          = aws_subnet.main.id
+    subnets          = [aws_subnet.main.id]
     assign_public_ip = false
     security_groups  = [aws_security_group.ecs_service_sg.id]
   }
