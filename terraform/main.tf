@@ -186,33 +186,6 @@ resource "aws_subnet" "private_2" {
   availability_zone = var.availability_zone[1]
 }
 
-# A NAT gateway is required for the private subnet.
-# Configure EIP for the first NAT Gateway.
-resource "aws_eip" "nat_1" {
-  vpc = true
-}
-
-# configure EIP for the second NAT gateway.
-resource "aws_eip" "nat_2" {
-  vpc = true
-}
-
-# Create the first NAT gateway.
-resource "aws_nat_gateway" "ngw_1" {
-  subnet_id     = aws_subnet.public_1.id
-  allocation_id = aws_eip.nat_1.id
-  # Requires a resource dependency.
-  depends_on = [aws_internet_gateway.igw]
-}
-
-# Create the second NAT gateway.
-resource "aws_nat_gateway" "ngw_2" {
-  subnet_id     = aws_subnet.public_2.id
-  allocation_id = aws_eip.nat_2.id
-  # Requires a resource dependency.
-  depends_on = [aws_internet_gateway.igw]
-}
-
 # Create the route tables for the subnets.
 # Create the first private subnet route table.
 resource "aws_route_table" "private_1" {
@@ -228,14 +201,12 @@ resource "aws_route_table" "private_2" {
 resource "aws_route" "private_1" {
   route_table_id         = aws_route_table.private_1.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = aws_nat_gateway.ngw_1.id
 }
 
 # create the second perivate subnet route.
 resource "aws_route" "private_2" {
   route_table_id         = aws_route_table.private_2.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = aws_nat_gateway.ngw_2.id
 }
 
 # Associate the private subnet route table to the first private subnet.
