@@ -104,6 +104,15 @@ resource "aws_vpc" "main" {
   }
 }
 
+resource "aws_subnet" "main" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "Main"
+  }
+}
+
 resource "aws_security_group" "lb_sg" {
   name        = "lb-sg"
   description = "Security group for the Application Load Balancer"
@@ -163,6 +172,7 @@ resource "aws_lb" "app_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb_sg.id]
+  subnets            = aws.subnet.main.id
 }
 
 resource "aws_lb_target_group" "app_tg" {
